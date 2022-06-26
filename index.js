@@ -24,6 +24,8 @@ client.on("messageCreate", async (msg) => {
 
         if(command==="$help"){
             await msg.reply(help())
+        }else if(command==="$startgame"){
+            startGame(msg)
         }
     }
 })
