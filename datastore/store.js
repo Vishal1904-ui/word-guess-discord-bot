@@ -44,8 +44,18 @@ const getWordForGroup = (gid) => {
     return db[gid]
 }
 
+const checkGameStarted = (gid) => {
+    if(db[gid]){
+        return true
+    }else {
+        return false
+    }
+}
+
 module.exports = {
     addNewEntry,
     getWordLength,
-    getWordForGroup
+    getWordForGroup,
+    checkGameStarted,
+    deleteEntry
 }

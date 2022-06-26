@@ -10,6 +10,8 @@ env.config()
 
 const client = new discord.Client( { intents: ["DIRECT_MESSAGES","GUILD_MESSAGES","GUILDS"] } )
 
+//msg -> content, guildId
+
 client.on("ready",() => {
     console.log("Bot up and running")
 })
