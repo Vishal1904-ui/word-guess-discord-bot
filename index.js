@@ -5,6 +5,7 @@ const env = require("dotenv")
 //const { test } = require("./bot_functions/test")
 const { help } = require("./bot_functions/help")
 const { startGame } = require("./bot_functions/start_game")
+const { checkGuessedWord } = require("./bot_functions/check_guessed_word")
 
 env.config()
 
@@ -22,12 +23,18 @@ client.on("messageCreate", async (msg) => {
     if(msg.content.startsWith("$")){
         const [command,...args] = msg.content.split(" ")
 
-        console.log(command,args)
+        //console.log(command,args)
 
         if(command==="$help"){
             await msg.reply(help())
         }else if(command==="$startgame"){
             startGame(msg)
+        }else if(command==="$guess"){
+            if(args.length===0){
+                msg.reply("Please guess a word.")
+                return
+            }
+            checkGuessedWord(msg,args[0])
         }
     }
 })
