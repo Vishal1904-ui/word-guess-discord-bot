@@ -4,6 +4,7 @@ const env = require("dotenv")
 //custom function import
 //const { test } = require("./bot_functions/test")
 const { help } = require("./bot_functions/help")
+const { startGame } = require("./bot_functions/start_game")
 
 env.config()
 
